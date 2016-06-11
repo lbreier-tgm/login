@@ -19,9 +19,9 @@ public class Card {
 	}
 
 	private void init() {
+		left = (int)(Math.random() * 10)+1;
+		right = (int)(Math.random() * 10)+1;
 		result = 0;
-		// TODO left und right zufaellig befuellen
-		
 	}
 
 	public String next() {
