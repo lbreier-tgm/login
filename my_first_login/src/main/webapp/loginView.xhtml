@@ -17,15 +17,14 @@
 				maxSize="250" collapsible="true">
 				<h:form>
 					<p:panelGrid columns="2">
-					<!-- TODO
-					outputLabel fuer msg.user
-					inputText fuer user.name inkl. LoginValidator
-					outputLabel fuer msg.password
-					inputSecret fuer user.password
-					 -->
+					<h:outputLabel value="#{msg.user}" />
+					<p:inputText id="user" value="#{user.name}" />
+					<h:outputLabel value="#{msg.password}" />
+					<p:password id="password" value="#{user.password}" />
 						
 					</p:panelGrid>
-					<!-- TODO commandButton mit Text msg.login, user.login wird aufgerufen -->
+					<p:commandButton action="#{user.login}" ajax="false" value="#{msg.login}" />
+					
 				</h:form>
 			</p:layoutUnit>
 		</p:layout>

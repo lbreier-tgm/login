@@ -1,6 +1,9 @@
 package model;
 
+import java.io.IOException;
+
 import javax.faces.context.FacesContext;
+
 
 public class User {
 	private String name;
@@ -34,11 +37,18 @@ public class User {
 		this.password = password;
 	}
 
-	public String login() {
+	public String login() throws IOException{
 		String ret = "failed";
 		// TODO name und password ueberpruefen - im Fehlerfall "failed" returnen,
 		// ansonsten "loggedIn" auf true setzen und "success" returnen
-		
+		if(name.equals("tester") && password.equals("ichdarfrein")) {
+			loggedIn = true;
+			ret = "success";
+		} else {
+			loggedIn = false;
+			ret = "failed";
+			FacesContext.getCurrentInstance().getExternalContext().redirect("google.at");
+		}
 		return ret;
 	}
 
